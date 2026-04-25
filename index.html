@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#d0d0d0" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <title>ICQA BARCODE APP</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- 화면 1: 스플래시 -->
+  <div id="screen1" class="screen active">
+    <img src="images/screen1.png" class="bg-image" alt="스플래시" />
+    <div class="touch-overlay" onclick="goTo('screen2')"></div>
+  </div>
+
+  <!-- 화면 2: QR 모음집 -->
+  <div id="screen2" class="screen">
+    <img src="images/screen2.png" class="bg-image" alt="QR 모음집" />
+    <button class="btn-invisible btn-gayonghwa" onclick="goTo('screen3')"></button>
+    <button class="btn-invisible btn-pyegijeori" onclick="goTo('screen4')"></button>
+  </div>
+
+  <!-- 화면 3: OB 가용화 모드 -->
+  <div id="screen3" class="screen">
+    <img src="images/screen3.png" class="bg-image" alt="OB 가용화" />
+    <button class="btn-invisible btn-arrow-3" onclick="goTo('screen5')"></button>
+    <button class="btn-invisible btn-back-3" onclick="goTo('screen2')"></button>
+  </div>
+
+  <!-- 화면 4: 폐기처리 입력 -->
+  <div id="screen4" class="screen">
+    <img src="images/screen4.png" class="bg-image" id="screen4-img" alt="폐기처리" />
+    <div class="location-inputs" id="location-inputs">
+      <div class="loc-slot" id="slot1">
+        <div class="loc-header" id="label1" onclick="openInput(1)"></div>
+        <div class="loc-body" onclick="openInput(1)">
+          <button class="plus-btn" id="plus1" onclick="openInput(1)">+</button>
+          <img class="loc-img" id="img1" />
+        </div>
+      </div>
+      <div class="loc-slot" id="slot2">
+        <div class="loc-header" id="label2" onclick="openInput(2)"></div>
+        <div class="loc-body" onclick="openInput(2)">
+          <button class="plus-btn" id="plus2" onclick="openInput(2)">+</button>
+          <img class="loc-img" id="img2" />
+        </div>
+      </div>
+      <div class="loc-slot" id="slot3">
+        <div class="loc-header" id="label3" onclick="openInput(3)"></div>
+        <div class="loc-body" onclick="openInput(3)">
+          <button class="plus-btn" id="plus3" onclick="openInput(3)">+</button>
+          <img class="loc-img" id="img3" />
+        </div>
+      </div>
+    </div>
+    <button class="btn-invisible btn-back-4" onclick="goTo('screen2')"></button>
+  </div>
+
+  <!-- 화면 5: IB 이관가용화 모드 -->
+  <div id="screen5" class="screen">
+    <img src="images/screen5.png" class="bg-image" alt="IB 이관가용화" />
+    <button class="btn-invisible btn-arrow-5" onclick="goTo('screen3')"></button>
+    <button class="btn-invisible btn-back-5" onclick="goTo('screen2')"></button>
+  </div>
+
+  <!-- 바코드 입력 모달 -->
+  <div id="input-modal" class="modal-overlay" style="display:none;">
+    <div class="modal-box">
+      <div class="modal-title" id="modal-title">로케이션 입력</div>
+      <input type="text" id="modal-input" placeholder="바코드 값 입력" oninput="updatePreview()" />
+      <canvas id="modal-canvas"></canvas>
+      <div class="modal-buttons">
+        <button onclick="cancelInput()">취소</button>
+        <button onclick="confirmInput()">확인</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.6/dist/JsBarcode.all.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

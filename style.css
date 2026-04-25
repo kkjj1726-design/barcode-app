@@ -1,0 +1,261 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #d0d0d0;
+}
+
+.screen {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.screen.active {
+  display: block;
+}
+
+.bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: top;
+  display: block;
+}
+
+/* 전체 화면 터치 (스플래시) */
+.touch-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+}
+
+/* 투명 버튼 공통 */
+.btn-invisible {
+  position: absolute;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* =====================
+   화면 2 버튼 위치
+   (이미지 보고 조정 필요)
+===================== */
+.btn-gayonghwa {
+  bottom: 3%;
+  left: 10%;
+  width: 38%;
+  height: 7%;
+}
+
+.btn-pyegijeori {
+  bottom: 3%;
+  right: 10%;
+  width: 38%;
+  height: 7%;
+}
+
+/* =====================
+   화면 3 버튼 위치
+===================== */
+.btn-arrow-3 {
+  top: 70%;
+  left: 46%;
+  width: 7.9%;
+  height: 12%;
+}
+
+.btn-back-3 {
+  bottom: 3%;
+  left: 10%;
+  width: 80%;
+  height: 7%;
+}
+
+/* =====================
+   화면 4 버튼 위치
+===================== */
+.btn-back-4 {
+  bottom: 3%;
+  left: 10%;
+  width: 80%;
+  height: 7%;
+}
+
+/* =====================
+   화면 5 버튼 위치
+===================== */
+.btn-arrow-5 {
+  top: 70%;
+  left: 46%;
+  width: 7.9%;
+  height: 12%;
+}
+
+.btn-back-5 {
+  bottom: 3%;
+  left: 10%;
+  width: 80%;
+  height: 7%;
+}
+
+/* =====================
+   화면 4: 배경 + 슬롯
+===================== */
+.screen4-bg {
+  background-image: url('images/screen4.png');
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+}
+
+.location-inputs {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.loc-slot {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.loc-header {
+  background: transparent;
+  color: transparent;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 8px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.loc-body {
+  background: transparent;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.plus-btn {
+  color: #555;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  line-height: 1;
+  padding: 0;
+}
+
+.loc-img {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.loc-label {
+  display: none;
+}
+
+/* =====================
+   모달
+===================== */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal-box {
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px 20px;
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.modal-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.modal-box input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.modal-box input:focus {
+  outline: none;
+  border-color: #555;
+}
+
+#modal-canvas {
+  width: 100%;
+  max-height: 120px;
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+.modal-buttons button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.modal-buttons button:first-child {
+  background: #eee;
+  color: #555;
+}
+
+.modal-buttons button:last-child {
+  background: #555;
+  color: #fff;
+}
